@@ -1,0 +1,134 @@
+<import name="topic" src="../topic/index"></import>
+<import name="tech" src="../tech/index"></import>
+<import name="blockchain" src="../blockchain/index"></import>
+<import name="about" src="../About/index"></import>
+
+<template>
+  <div id="home">
+    <div class="flexible-tabs">
+      <tabs onchange="changeTabactive" index="{{currentIndex}}">
+        <tab-content class="flexible-tab-content">
+          <div class="tab-content-section">
+            <topic if="{{ renderTabContent(0)}}" current-index={{currentIndex}} show="currentIndex===0" tab-name={{tabList[0].name}} content-type={{tabList[0].contentType}}>
+            </topic>
+          </div>
+          <div class="tab-content-section">
+            <tech if="{{ renderTabContent(1)}}" current-index={{currentIndex}} show="currentIndex===1" tab-name={{tabList[1].name}} content-type={{tabList[1].contentType}}>
+            </tech>
+          </div>
+          <div class="tab-content-section">
+            <blockchain if="{{ renderTabContent(2)}}" current-index={{currentIndex}} show="currentIndex===2" tab-name={{tabList[2].name}} content-type={{tabList[2].contentType}}>
+            </blockchain>
+          </div>
+          <div class="tab-content-section">
+            <about if="{{ renderTabContent(3)}}" current-index={{currentIndex}} show="currentIndex===3" tab-name={{tabList[3].name}} content-type={{tabList[3].contentType}}>
+            </about>
+          </div>
+        </tab-content>
+
+        <tab-bar class="flexible-tabbar">
+          <div class="tab-item" for="{{(index,item) in tabList}}" @click="clickTabBar(index)">
+            <image class="tab-icon" src="{{(index == currentIndex) ? item.icon_selected :item.icon}}"></image>
+            <text class="{{(index == currentIndex) ? 'selected' :'normal'}}">{{item.name}}</text>
+          </div>
+        </tab-bar>
+      </tabs>
+
+    </div>
+  </div>
+</template>
+<style lang="less" scoped>
+  #home {
+    font-size: 16px;
+    .flexible-tabs {
+      display: flex;
+      flex-direction: column;
+    }
+    .flexible-tabbar {
+      display: flex;
+      border-top-width: 1px;
+      border-top-color: #eeeeee;
+    }
+    .tab-item {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tab-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    tab-bar {
+      height: 120px;
+      border-top-color: #dbdbdb;
+      border-top-width: 1px;
+    }
+
+    .normal {
+      color: rgb(170, 172, 179);
+    }
+
+    .selected {
+      color: rgb(101, 124, 137);
+    }
+  }
+</style>
+
+
+<script>
+  export default {
+    data: {
+      tabList: [
+        {
+          name: '热门话题',
+          icon: '/image/ic_topic.png',
+          icon_selected: '/image/ic_topic_selected.png',
+          contentType:'topic'
+        },
+        {
+          name: '科技动态',
+          icon: '/image/ic_tech.png',
+          icon_selected: '/image/ic_tech_selected.png',
+          contentType:'news'
+        },
+        {
+          name: '区块链快讯',
+          icon: '/image/ic_block_chain.png',
+          icon_selected: '/image/ic_block_chain_selected.png',
+          contentType:'blockchain'
+        },
+        {
+          name: '关于',
+          icon: '/image/ic_about.png',
+          icon_selected: '/image/ic_about_selected.png',
+          contentType:'about'
+        }
+      ],
+      currentIndex: 0
+    },
+    onInit() {
+      this.changeTabIndex(0)
+    },
+    onReady() {
+    },
+    onShow() {
+    },
+    changeTabIndex(index) {
+      const item = Object.assign({}, this.tabList[index])
+      item.render = true
+      this.tabList.splice(index, 1, item)//删除再添加
+    },
+    changeTabactive(evt) {
+      this.currentIndex = evt.index
+      this.changeTabIndex(evt.index)
+    },
+    renderTabContent(index) {
+      return !!this.tabList[index].render
+    },
+    clickTabBar(index) {
+      this.currentIndex = index
+    }
+  }
+</script>

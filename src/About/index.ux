@@ -1,0 +1,139 @@
+<template>
+  <div class="demo-page">
+    <!-- 应用图标 -->
+    <image id="icon" src="{{icon}}"></image>
+
+    <!-- 应用名 -->
+    <text id="name">{{name}}</text>
+
+    <!-- 应用描述 -->
+
+    <text id="desc">{{desc}}</text>
+
+    <text id="main_page">Readhub:
+      <a href="https://readhub.me">https://readhub.me</a>
+    </text>
+
+    <text id="dev_email">开发者邮箱:
+      <a href="shaxianjunstu@163.com">shaxianjunstu@163.com</a>
+    </text>
+
+    <!-- 应用标签 -->
+    <div id="tags">
+      <text class="tag">快应用</text>
+      <text class="gap">|</text>
+      <text class="tag">无安装</text>
+      <text class="gap">|</text>
+      <text class="tag">体积小</text>
+      <text class="gap">|</text>
+      <text class="tag">一步直达</text>
+    </div>
+
+    <!-- 创建快捷方式 -->
+    <input class="btn" type="button" onclick="createShortcut" value="创建快捷方式">
+  </div>
+</template>
+
+<style>
+  .demo-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 应用图标 */
+
+  #icon {
+    margin-top: 90px;
+    width: 150px;
+    height: 150px;
+  }
+
+  /* 应用名 */
+
+  #name {
+    margin-top: 20px;
+    font-size: 36px;
+    color: #000000;
+  }
+
+  /* 应用标签 */
+
+  #tags {
+    width: 100%;
+    align-items: center;
+    margin-top: 200px;
+  }
+
+  .tag {
+    padding-left: 50px;
+    padding-right: 35px;
+    font-size: 28px;
+    color: #2a9700;
+  }
+
+  .gap {
+    font-size: 22px;
+    color: #b2b2b2;
+  }
+
+  /* 应用描述 */
+
+  #desc {
+    width: 95%;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 40px;
+    font-size: 40px;
+    color: #8d8d8d;
+  }
+
+  #main_page,#dev_email{
+    width: 95%;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 40px;
+    font-size: 40px;
+    color: #8d8d8d;
+  }
+
+  a {
+    color: #0269c8;
+  }
+
+  /* 按钮 */
+
+  .btn {
+    width: 550px;
+    height: 86px;
+    margin-top: 75px;
+    border-radius: 43px;
+    background-color: #09ba07;
+    font-size: 30px;
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  /**
+   * 默认的菜单页(可自定义)
+   * name默认为manifest文件中的name字段
+   * icon默认为manifest文件中的icon字段
+   * 若需修改页面中文本，请修改VM data中对应变量
+   * 注意：使用加载器测试`创建桌面快捷方式`功能时，需要进入系统设置->权限管理->开启应用加载器的`桌面快捷方式`权限，才能保存到桌面。应用上线后可自动获取`桌面快捷方式`权限
+   */
+  export default {
+    data: {
+      desc: '该应用仅为个人兴趣所开发的 Readhub 第三方客户端，非无码科技官方产品。应用内所有资讯内容均来自无码科技产品 Readhub',
+      icon: '/image/logo.png',
+      name: 'Readhub'
+    },
+    onInit() {
+      // 设置标题栏
+      // this.$page.setTitleBar({ text: this.name })
+    },
+    createShortcut() {
+      // 创建快捷方式
+      this.$app.createShortcut()
+    }
+  }
+</script>

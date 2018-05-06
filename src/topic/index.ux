@@ -1,0 +1,79 @@
+ <!-- 显示内容view已独立成公共的view-->
+ <import name="common-view" src="../common"></import>
+
+ <!-- 加载中view已独立成公共的view-->
+ <import name="loading" src="../loading"></import>
+
+<template>
+  <stack style="width: 100%;width: 100%">
+    <!-- refresh 下拉刷新-->
+    <refresh refreshing="{{isLoadingNewData}}" @refresh="pageRefresh">
+      <common-view data-list={{dataList}} content-type={{contentType}} @scrollbottom="listScrollBottom"> </common-view>
+    </refresh>
+    <loading loading-text={{tabName}} loading-image="../image/loading.png" loading-show="{{!isFirstLoadComplete}}">
+    </loading>
+  </stack>
+</template>
+
+<script>
+  export default {
+    props: [
+      'tabName',
+      'contentType',
+    ],
+    data: {
+      isLoadingNewData: false,// 是否正在获取最新新闻数据，用于控制下拉刷新的显示和隐藏
+      isLoadingData: false,// 是否正在fetch请求数据
+      isFirstLoadComplete: false,// 控制首次加载中的图标是否显示
+      dataList: [],
+      lastTimeStamp: 0
+    },
+    onInit() {
+      // setTimeout(() => {
+      this.asyncLoadData(0)
+      // }, 3000)
+
+    },
+    async  asyncLoadData(lastCursor) {
+      this.isLoadingData = true
+      const { fetchData } = this.$app.$def
+      var resList = await fetchData.asyncLoadData(this.contentType, lastCursor)
+      this.renderList(resList, lastCursor)
+      this.isLoadingData = false
+      this.isLoadingNewData = false
+      this.isFirstLoadComplete = true
+
+    },
+    // 渲染列表
+    renderList(resList, lastCursor) {
+      if (!resList || !resList.length) {
+        console.log(`shaxj_readhub data fail.`)
+      } else {
+        //下拉刷新时清空列表
+        if (lastCursor == 0) {
+          this.dataList.splice(0, this.dataList.length);
+        }
+        this.dataList = this.dataList.concat(resList)
+        this.lastTimeStamp = this.dataList[this.dataList.length - 1].order;
+      }
+    },
+
+    /**
+     * 滑动到底部时加载更多
+     */
+    listScrollBottom: function () {
+      if (!this.isLoadingData) {
+        this.asyncLoadData(this.lastTimeStamp)
+      }
+    },
+    /**
+     * 下拉刷新
+     */
+    pageRefresh: function () {
+      if (!this.isLoadingData) {
+        this.isLoadingNewData = true;
+        this.asyncLoadData(0)
+      }
+    }
+  }
+</script>

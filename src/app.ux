@@ -1,0 +1,40 @@
+<script>
+  /**
+   * 应用级别的配置，供所有页面公用
+   */
+  import util from './js/util'
+  import { dataDirective } from './js/regenerator'
+  import networkApi from './js/networkApi'
+  import webview from '@system.webview'
+  import router from '@system.router'
+
+  export default {
+    showMenu: util.showMenu,
+    createShortcut: util.createShortcut,
+    convertTime: util.convertTime,
+    fetchData: networkApi.fetchData,
+    webview: webview,
+    router: router,
+
+    // 暴露给所有页面，在页面中通过：this.$app.$def.method1()访问
+    method1() {
+      console.info('shaxj 这是APP的方法method1')
+    },
+    // 暴露给所有页面，在页面中通过：this.$app.$def.data1访问
+    data1: {
+      name: '这是APP存的数据'
+    },
+
+    onCreate() {
+      console.info('shaxj Application onCreate')
+      console.info(`shaxj 获取：APP文件中的数据：${this.$def.data1.name}`)
+      this.$def.method1()
+      console.info(`shaxj 获取：manifest.json的应用名称：${this.$def.manifest.name}`)
+    },
+    onDestroy() {
+      console.info('shaxj Application onDestroy')
+    },
+
+  }
+
+</script>

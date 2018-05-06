@@ -1,0 +1,58 @@
+<template>
+  <!-- block 命令使用-->
+  <list class="list_view">
+    <block for="(index, item) in dataList">
+      <list-item type="product" class="list_content_item" @click="goWebView(item)">
+        <div class="content_wrap">
+          <text class="name">{{item.title}}</text>
+          <text class="summary">{{item.summary}}</text>
+          <div class="site-date">
+            <text class="siteName" if="{{item.siteName}}">{{item.siteName}}</text>
+            <text class="publishDate">{{item.publishDate}}</text>
+          </div>
+          <div class="divider"></div>
+        </div>
+      </list-item>
+      <!-- 列表最后一项出现时，“加载更多”出现-->
+      <list-item type="load_more" class="bottom_load_more" if="{{index == (dataList.length-1)}}">
+        <progress type="circular"></progress>
+        <text class="load_more_text">加载更多</text>
+      </list-item>
+    </block>
+  </list>
+</template>
+<style src="./css/common.css"></style>
+<script>
+  export default {
+    props: [
+      'dataList',
+      'contentType',
+    ],
+    goWebView(item) {
+      console.log(`shaxj_readhub contentType=${this.contentType}`)
+
+      if (this.contentType == "topic") {
+        if (item.newsArray.length > 0) {
+          var firstData = item.newsArray[0]
+          console.log(`shaxj_readhub url=${firstData.mobileUrl}`)
+
+          // this.$app.$def.webview.loadUrl({
+          //   url: firstData.mobileUrl
+          // })
+
+          this.$app.$def.router.push({
+            uri: '/WebView',
+            params: {
+              title: firstData.title,
+              url: firstData.mobileUrl
+            }
+          })
+        }
+      } else {
+        this.$app.$def.webview.loadUrl({
+          url: item.mobileUrl
+        })
+      }
+    }
+  }
+</script>
