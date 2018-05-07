@@ -2,4 +2,6 @@
 该应用仅为个人兴趣所开发的 Readhub 第三方客户端，非无码科技官方产品。
 
 ### 应用预览
-![应用预览](https://github.com/shaxianjun/Readhub/blob/master/main.jpg)
+![应用预览](https://github.com/shaxianjun/Readhub/blob/master/file/video_to_gif.gif)
+
+
