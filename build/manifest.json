@@ -6,14 +6,26 @@
   "minPlatformVersion": "101",
   "icon": "/image/logo.png",
   "features": [
-    { "name": "system.prompt" },
-    { "name": "system.router" },
-    { "name": "system.shortcut" },
-    { "name": "system.webview" },
-    { "name": "system.fetch"}
+    {
+      "name": "system.prompt"
+    },
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "system.shortcut"
+    },
+    {
+      "name": "system.webview"
+    },
+    {
+      "name": "system.fetch"
+    }
   ],
   "permissions": [
-    { "origin": "*" }
+    {
+      "origin": "*"
+    }
   ],
   "config": {
     "logLevel": "debug"
@@ -39,14 +51,14 @@
       },
       "Home": {
         "menu": false,
-        "titleBar":false,
-        "titleBarBackgroundColor":"#ffffff",
+        "titleBar": false,
+        "titleBarBackgroundColor": "#ffffff",
         "titleBarTextColor": "#000000"
       },
       "WebView": {
         "menu": false,
-        "titleBar":false,
-        "titleBarBackgroundColor":"#ffffff",
+        "titleBar": false,
+        "titleBarBackgroundColor": "#ffffff",
         "titleBarTextColor": "#000000"
       }
     }
