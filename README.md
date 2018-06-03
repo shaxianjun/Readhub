@@ -47,24 +47,30 @@ npm run server
 
 ### 3.源码介绍
 
+```
+|____Home                     
+| |____about/index.ux         关于Tab
+| |____topic/index.ux         热门话题Tab 
+| |____blockchain/index.ux    区块链Tab
+| |____tech/index.ux          科技动态Tab
+| |____common.ux              内容三个Tab的公共UI部分
+| |____loading.ux             内容三个Tab的公共加载部分
+| |____index.ux               首页
+
+|____WebView                  
+| |____index.ux               显示新闻详情
+
+|____res
+| |____css
+| | |____common.css           css文件
+| |____js
+| | |____util.js              工具方法
+| | |____regenerator.js       注入babel-runtime/regenerator，支持async
+| | |____networkApi.js        网络配置
+| |____image                  所有图片资源
+|____app.ux                   APP文件（用于包括公用资源）
+|____manifest.json            项目配置文件（如：应用描述、接口申明、页面路由等）
 
 ```
-├── node_modules
-├── sign                      rpk包签名模块
-│   └── debug                 调试环境
-│       ├── certificate.pem   证书文件
-│       └── private.pem       私钥文件
-├── src
-│   ├── Common                公用的资源文件和组件文件
-│   │   └── logo.png          manifest.json中配置的icon
-│   ├── Demo                  页面目录
-│   |   └── index.ux          页面文件，文件名不必与父文件夹相同
-│   ├── app.ux                APP文件（用于包括公用资源）
-│   └── manifest.json         项目配置文件（如：应用描述、接口申明、页面路由等）
-└── package.json              定义项目需要的各种模块及配置信息，npm install根据这个配置文件，自动下载所需的运行和开发环境
-```
 
 
-
-
-### 4.开发者信息
