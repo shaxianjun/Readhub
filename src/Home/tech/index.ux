@@ -1,16 +1,17 @@
- <!-- 显示内容view已独立成公共的view-->
- <import name="common-view" src="../common"></import>
+<!-- 显示内容view已独立成公共的view-->
+<import name="common-view" src="../common"></import>
 
- <!-- 加载中view已独立成公共的view-->
- <import name="loading" src="../loading"></import>
+<!-- 加载中view已独立成公共的view-->
+<import name="loading" src="../loading"></import>
 
+<!-- 列表实现 -->
 <template>
   <stack style="width: 100%;width: 100%">
     <!-- refresh 下拉刷新-->
     <refresh refreshing="{{isLoadingNewData}}" @refresh="pageRefresh">
       <common-view data-list={{dataList}} content-type={{contentType}} @scrollbottom="listScrollBottom"> </common-view>
     </refresh>
-    <loading loading-text={{tabName}} loading-image="../image/loading.png" loading-show="{{!isFirstLoadComplete}}">
+    <loading loading-text={{tabName}} loading-image="../res/image/loading.png" loading-show="{{!isFirstLoadComplete}}">
     </loading>
   </stack>
 </template>
@@ -54,7 +55,7 @@
           this.dataList.splice(0, this.dataList.length);
         }
         this.dataList = this.dataList.concat(resList)
-        this.lastTimeStamp = this.dataList[this.dataList.length - 1].order;
+        this.lastTimeStamp = this.dataList[this.dataList.length - 1].timeStamp;
       }
     },
 

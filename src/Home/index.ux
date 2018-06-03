@@ -1,7 +1,7 @@
-<import name="topic" src="../topic/index"></import>
-<import name="tech" src="../tech/index"></import>
-<import name="blockchain" src="../blockchain/index"></import>
-<import name="about" src="../About/index"></import>
+<import name="topic" src="./topic/index"></import>
+<import name="tech" src="./tech/index"></import>
+<import name="blockchain" src="./blockchain/index"></import>
+<import name="about" src="./About/index"></import>
 
 <template>
   <div id="home">
@@ -83,26 +83,26 @@
       tabList: [
         {
           name: '热门话题',
-          icon: '/image/ic_topic.png',
-          icon_selected: '/image/ic_topic_selected.png',
+          icon: '/res/image/ic_topic.png',
+          icon_selected: '/res/image/ic_topic_selected.png',
           contentType:'topic'
         },
         {
           name: '科技动态',
-          icon: '/image/ic_tech.png',
-          icon_selected: '/image/ic_tech_selected.png',
+          icon: '/res/image/ic_tech.png',
+          icon_selected: '/res/image/ic_tech_selected.png',
           contentType:'news'
         },
         {
           name: '区块链快讯',
-          icon: '/image/ic_block_chain.png',
-          icon_selected: '/image/ic_block_chain_selected.png',
+          icon: '/res/image/ic_block_chain.png',
+          icon_selected: '/res/image/ic_block_chain_selected.png',
           contentType:'blockchain'
         },
         {
           name: '关于',
-          icon: '/image/ic_about.png',
-          icon_selected: '/image/ic_about_selected.png',
+          icon: '/res/image/ic_about.png',
+          icon_selected: '/res/image/ic_about_selected.png',
           contentType:'about'
         }
       ],

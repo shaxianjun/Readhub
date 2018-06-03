@@ -472,7 +472,7 @@
 	      "type": "loading",
 	      "attr": {
 	        "loadingText": function () {return this.tabName},
-	        "loadingImage": "../image/loading.png",
+	        "loadingImage": "../res/image/loading.png",
 	        "loadingShow": function () {return !this.isFirstLoadComplete}
 	      }
 	    }
@@ -617,7 +617,7 @@
 	      "type": "loading",
 	      "attr": {
 	        "loadingText": function () {return this.tabName},
-	        "loadingImage": "../image/loading.png",
+	        "loadingImage": "../res/image/loading.png",
 	        "loadingShow": function () {return !this.isFirstLoadComplete}
 	      }
 	    }
@@ -715,7 +715,6 @@
 	__webpack_require__(2)
 	__webpack_require__(6)
 	var $app_template$ = __webpack_require__(16)
-	var $app_style$ = __webpack_require__(4)
 	var $app_script$ = __webpack_require__(17)
 	
 	$app_define$('@app-component/blockchain', [], function($app_require$, $app_exports$, $app_module$){
@@ -724,7 +723,6 @@
 	            $app_module$.exports = $app_exports$.default
 	        }
 	     $app_module$.exports.template = $app_template$
-	     $app_module$.exports.style = $app_style$
 	})
 
 
@@ -764,7 +762,7 @@
 	      "type": "loading",
 	      "attr": {
 	        "loadingText": function () {return this.tabName},
-	        "loadingImage": "../image/loading.png",
+	        "loadingImage": "../res/image/loading.png",
 	        "loadingShow": function () {return !this.isFirstLoadComplete}
 	      }
 	    }
@@ -1493,23 +1491,23 @@
 	  data: {
 	    tabList: [{
 	      name: '热门话题',
-	      icon: '/image/ic_topic.png',
-	      icon_selected: '/image/ic_topic_selected.png',
+	      icon: '/res/image/ic_topic.png',
+	      icon_selected: '/res/image/ic_topic_selected.png',
 	      contentType: 'topic'
 	    }, {
 	      name: '科技动态',
-	      icon: '/image/ic_tech.png',
-	      icon_selected: '/image/ic_tech_selected.png',
+	      icon: '/res/image/ic_tech.png',
+	      icon_selected: '/res/image/ic_tech_selected.png',
 	      contentType: 'news'
 	    }, {
 	      name: '区块链快讯',
-	      icon: '/image/ic_block_chain.png',
-	      icon_selected: '/image/ic_block_chain_selected.png',
+	      icon: '/res/image/ic_block_chain.png',
+	      icon_selected: '/res/image/ic_block_chain_selected.png',
 	      contentType: 'blockchain'
 	    }, {
 	      name: '关于',
-	      icon: '/image/ic_about.png',
-	      icon_selected: '/image/ic_about_selected.png',
+	      icon: '/res/image/ic_about.png',
+	      icon_selected: '/res/image/ic_about_selected.png',
 	      contentType: 'about'
 	    }],
 	    currentIndex: 0

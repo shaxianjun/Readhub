@@ -4,7 +4,7 @@
   "versionName": "1.0",
   "versionCode": "1",
   "minPlatformVersion": "101",
-  "icon": "/image/logo.png",
+  "icon": "/res/image/logo.png",
   "features": [
     {
       "name": "system.prompt"

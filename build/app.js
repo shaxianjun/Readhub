@@ -99,25 +99,14 @@
 	  webview: _system2.default,
 	  router: _system4.default,
 	
-	  method1: function method1() {
-	    console.info('shaxj 这是APP的方法method1');
-	  },
-	
-	  data1: {
-	    name: '这是APP存的数据'
-	  },
-	
 	  onCreate: function onCreate() {
-	    console.info('shaxj Application onCreate');
-	    console.info('shaxj \u83B7\u53D6\uFF1AAPP\u6587\u4EF6\u4E2D\u7684\u6570\u636E\uFF1A' + this.$def.data1.name);
-	    this.$def.method1();
-	    console.info('shaxj \u83B7\u53D6\uFF1Amanifest.json\u7684\u5E94\u7528\u540D\u79F0\uFF1A' + this.$def.manifest.name);
+	    console.info('Application onCreate');
 	  },
 	  onDestroy: function onDestroy() {
-	    console.info('shaxj Application onDestroy');
+	    console.info('Application onDestroy');
 	  }
 	};
-	(exports.default || module.exports).manifest = {"package":"com.quickapp.study.readhub","name":"Readhub","versionName":"1.0","versionCode":"1","minPlatformVersion":"101","icon":"/image/logo.png","features":[{"name":"system.prompt"},{"name":"system.router"},{"name":"system.shortcut"},{"name":"system.webview"},{"name":"system.fetch"}],"permissions":[{"origin":"*"}],"config":{"logLevel":"debug"},"router":{"entry":"Home","pages":{"Home":{"component":"index"},"WebView":{"component":"index"}}},"display":{"titleBarBackgroundColor":"#f2f2f2","titleBarTextColor":"#414141","menu":true,"pages":{"About":{"menu":true},"Home":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"},"WebView":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"}}}};
+	(exports.default || module.exports).manifest = {"package":"com.quickapp.study.readhub","name":"Readhub","versionName":"1.0","versionCode":"1","minPlatformVersion":"101","icon":"/res/image/logo.png","features":[{"name":"system.prompt"},{"name":"system.router"},{"name":"system.shortcut"},{"name":"system.webview"},{"name":"system.fetch"}],"permissions":[{"origin":"*"}],"config":{"logLevel":"debug"},"router":{"entry":"Home","pages":{"Home":{"component":"index"},"WebView":{"component":"index"}}},"display":{"titleBarBackgroundColor":"#f2f2f2","titleBarTextColor":"#414141","menu":true,"pages":{"About":{"menu":true},"Home":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"},"WebView":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"}}}};
 	}
 
 /***/ },
@@ -1050,6 +1039,15 @@
 	//有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用Promise.race()实现
 	
 	
+	//获取json数据的测试
+	//https://readhub.me/ 无码科技官网
+	//https://api.readhub.me/topic  热门话题
+	//https://api.readhub.me/technews  开发者资讯
+	//https://api.readhub.me/blockchain  区块链
+	//https://api.readhub.me/news    科技动态
+	//https://github.com/BryantPang/ReadHub
+	
+	
 	var fetchData = {
 	  /**
 	   * 网络请求
@@ -1189,7 +1187,7 @@
   else {
     window.createAppHandler = createAppHandler
     // H5注入manifest以获取features
-    global.manifest = {"package":"com.quickapp.study.readhub","name":"Readhub","versionName":"1.0","versionCode":"1","minPlatformVersion":"101","icon":"/image/logo.png","features":[{"name":"system.prompt"},{"name":"system.router"},{"name":"system.shortcut"},{"name":"system.webview"},{"name":"system.fetch"}],"permissions":[{"origin":"*"}],"config":{"logLevel":"debug"},"router":{"entry":"Home","pages":{"Home":{"component":"index"},"WebView":{"component":"index"}}},"display":{"titleBarBackgroundColor":"#f2f2f2","titleBarTextColor":"#414141","menu":true,"pages":{"About":{"menu":true},"Home":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"},"WebView":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"}}}};
+    global.manifest = {"package":"com.quickapp.study.readhub","name":"Readhub","versionName":"1.0","versionCode":"1","minPlatformVersion":"101","icon":"/res/image/logo.png","features":[{"name":"system.prompt"},{"name":"system.router"},{"name":"system.shortcut"},{"name":"system.webview"},{"name":"system.fetch"}],"permissions":[{"origin":"*"}],"config":{"logLevel":"debug"},"router":{"entry":"Home","pages":{"Home":{"component":"index"},"WebView":{"component":"index"}}},"display":{"titleBarBackgroundColor":"#f2f2f2","titleBarTextColor":"#414141","menu":true,"pages":{"About":{"menu":true},"Home":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"},"WebView":{"menu":false,"titleBar":false,"titleBarBackgroundColor":"#ffffff","titleBarTextColor":"#000000"}}}};
   }
 })();
 //# sourceMappingURL=app.js.map

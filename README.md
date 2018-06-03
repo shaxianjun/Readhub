@@ -1,6 +1,6 @@
 快应用出来有一段时间了，能够让9大手机厂商联盟创立的新生态，自然要去学习学习啦
-大约两周时间开发了一个新闻阅读应用，感觉还算流畅。其实我更看重它的原生能力
-作为用户，你以最快最方便的方式给我提供需要的服务就可以了。
+大约两周时间开发了一个新闻阅读应用，感觉还算流畅。其实我更看重它的原生能力。
+作为用户，能以最快最方便的方式给我提供需要的稳定服务就可以了。
 也许快应用技术是真正可以实现用完即走的优秀体验，就看各大厂家的重视程度了。
 
 
@@ -8,16 +8,16 @@
 该应用仅为个人兴趣所开发的 Readhub 第三方客户端，非无码科技官方产品。
 
 ### 1.应用预览
-![应用预览](https://github.com/shaxianjun/Readhub/blob/master/file/video_to_gif.gif)
+![](https://github.com/shaxianjun/Readhub/blob/master/file/video_to_gif.gif)
 
 
 ### 2.搭建环境
 
-第一步  clone源码
+##### 第一步  clone源码
 
 git clone https://github.com/shaxianjun/Readhub.git
 
-第二步  开始编译
+##### 第二步  开始编译
 
 npm run build
 
@@ -25,21 +25,24 @@ npm run build
 ![](https://github.com/shaxianjun/Readhub/blob/master/file/npm-run-build-result.png)
 表示编译通过
 
-第三步  安装apk 终端生成二维码
+##### 第三步  终端生成二维码
 
 npm run server
-![应用预览](https://github.com/shaxianjun/Readhub/blob/master/file/npm-run-server-result.png)
 运行结果如下
+![](https://github.com/shaxianjun/Readhub/blob/master/file/npm-run-server-result.png)
 
-由于这里二维码无法扫描安装，只能继续第四步
+由于这里二维码无法扫描安装，具体原因未知，只能继续第四步
 
-第四步  安装apk  浏览器生成二维码
+##### 第四步 通过浏览器生成二维码
 
-输入http://localhost:12306/ 回车 会生成二维码，使用手机的中安装的【快应用调试器】扫码安装
+输入http://localhost:12306/ 回车
 
-![应用预览](https://github.com/shaxianjun/Readhub/blob/master/file/scan.png)
+![](https://github.com/shaxianjun/Readhub/blob/master/file/scan.png)
 
 
+##### 第五步 使用手机的中安装的【快应用调试器】扫码安装
+
+![](https://github.com/shaxianjun/Readhub/blob/master/file/debuger_app.jpg)
 
 
 ### 3.源码介绍

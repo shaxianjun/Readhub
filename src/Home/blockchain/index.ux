@@ -11,13 +11,10 @@
     <refresh refreshing="{{isLoadingNewData}}" @refresh="pageRefresh">
       <common-view data-list={{dataList}}  content-type={{contentType}} @scrollbottom="listScrollBottom"> </common-view>
     </refresh>
-    <loading loading-text={{tabName}} loading-image="../image/loading.png" loading-show="{{!isFirstLoadComplete}}">
+    <loading loading-text={{tabName}} loading-image="../res/image/loading.png" loading-show="{{!isFirstLoadComplete}}">
     </loading>
   </stack>
 </template>
-
-<style src="../css/common.css"></style>
-
 
 <script>
   export default {

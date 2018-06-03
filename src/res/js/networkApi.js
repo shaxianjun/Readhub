@@ -7,6 +7,17 @@
 //有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用Promise.race()实现
 
 
+//获取json数据的测试
+//https://readhub.me/ 无码科技官网
+//https://api.readhub.me/topic  热门话题
+//https://api.readhub.me/technews  开发者资讯
+//https://api.readhub.me/blockchain  区块链
+//https://api.readhub.me/news    科技动态
+//https://github.com/BryantPang/ReadHub
+
+
+
+
 import nativeFetch from '@system.fetch'
 
 const fetchData = {

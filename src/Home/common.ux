@@ -21,7 +21,7 @@
     </block>
   </list>
 </template>
-<style src="./css/common.css"></style>
+<style src="../res/css/common.css"></style>
 <script>
   export default {
     props: [
